@@ -177,7 +177,7 @@ public class auth extends BaseActivity implements
          email = mEmailField.getEditText().getText().toString();
          login = mLoginField.getEditText().getText().toString();
         if (TextUtils.isEmpty(email)) {
-            mEmailField.setError("Required.");
+            mEmailField.setError("Необходимо заполнить!");
             Toast.makeText(this, "Введите все поля", Toast.LENGTH_SHORT).show();
             valid = false;
         } else {
@@ -186,7 +186,7 @@ public class auth extends BaseActivity implements
 
         String password = mPasswordField.getEditText().getText().toString();
         if (TextUtils.isEmpty(password)) {
-            mPasswordField.setError("Required.");
+            mPasswordField.setError("Необходимо заполнить!");
             Toast.makeText(this, "Введите все поля", Toast.LENGTH_SHORT).show();
             valid = false;
         } else {
@@ -194,7 +194,7 @@ public class auth extends BaseActivity implements
         }
 
         if (TextUtils.isEmpty(login)) {
-            mLoginField.setError("Required.");
+            mLoginField.setError("Необходимо заполнить!");
             Toast.makeText(this, "Введите все поля", Toast.LENGTH_SHORT).show();
             valid = false;
         } else {

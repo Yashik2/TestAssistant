@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -45,7 +46,9 @@ public class Making_test extends AppCompatActivity {
     public HashMap<Integer ,ArrayList<String>> answers_main = new HashMap<>();
     public ArrayList<String> right_answers = new ArrayList<>();
     public  int i = 0;
-
+    public TextInputLayout textField_answer2;
+    public TextInputLayout textField_answer4;
+    public TextInputLayout textField_answer3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +60,9 @@ public class Making_test extends AppCompatActivity {
         setContentView(R.layout.activity_making_test);
         textField_right_answer = (TextInputLayout) findViewById(R.id.textField_right_answer);
         textField_answer1 = (TextInputLayout) findViewById(R.id.textField_answer);
-        TextInputLayout textField_answer2 = (TextInputLayout) findViewById(R.id.textField_password);
-        TextInputLayout textField_answer3 = (TextInputLayout) findViewById(R.id.textField_answer3);
-        TextInputLayout textField_answer4 = (TextInputLayout) findViewById(R.id.textField_answer4);
+         textField_answer2 = (TextInputLayout) findViewById(R.id.textField_password);
+         textField_answer3 = (TextInputLayout) findViewById(R.id.textField_answer3);
+         textField_answer4 = (TextInputLayout) findViewById(R.id.textField_answer4);
         textField_qestion = (TextInputLayout) findViewById(R.id.textField_of_qestion);
         bt_end = (Button) findViewById(R.id.bt_end);
         bt_next_qestion = (Button) findViewById(R.id.bt_next_qestion);
@@ -70,35 +73,47 @@ public class Making_test extends AppCompatActivity {
         bt_next_answer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                answers.add(textField_answer1.getEditText().getText().toString());
-                answers.add(textField_answer2.getEditText().getText().toString());
-                answers.add(textField_answer3.getEditText().getText().toString());
-                answers.add(textField_answer4.getEditText().getText().toString());
+                if (valid())
+                {
+                    answers.add(textField_answer1.getEditText().getText().toString());
+                    answers.add(textField_answer2.getEditText().getText().toString());
+                    answers.add(textField_answer3.getEditText().getText().toString());
+                    answers.add(textField_answer4.getEditText().getText().toString());
 
-                textField_answer1.getEditText().setText("");
-                textField_answer2.getEditText().setText("");
-                textField_answer3.getEditText().setText("");
-                textField_answer4.getEditText().setText("");
-
+                    textField_answer1.getEditText().setText("");
+                    textField_answer2.getEditText().setText("");
+                    textField_answer3.getEditText().setText("");
+                    textField_answer4.getEditText().setText("");
+                }
             }
         });
 
 
         bt_next_qestion.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                qestions.add(textField_qestion.getEditText().getText().toString());
-                right_answer = textField_right_answer.getEditText().getText().toString();
-                right_answers.add(textField_right_answer.getEditText().getText().toString());
+                boolean val = true;
+                String right = textField_right_answer.getEditText().getText().toString();
+                if (TextUtils.isEmpty(right)) {
+                    textField_right_answer.setError("Необходимо заполнить!");
+                    val = false;
+                } else {
+                    textField_right_answer.setError(null);
+                }
+                if (valid() && val)
+                {
+                    qestions.add(textField_qestion.getEditText().getText().toString());
+                    right_answer = textField_right_answer.getEditText().getText().toString();
+                    right_answers.add(textField_right_answer.getEditText().getText().toString());
 
-                ArrayList<String> answers_help = new ArrayList<>(answers);
+                    ArrayList<String> answers_help = new ArrayList<>(answers);
 
-                answers_main.put(i, answers_help);
-                answers.removeAll(answers);
-                textField_qestion.getEditText().setText("");
-                textField_right_answer.getEditText().setText("");
-                i++;
+                    answers_main.put(i, answers_help);
+                    answers.removeAll(answers);
+                    textField_qestion.getEditText().setText("");
+                    textField_right_answer.getEditText().setText("");
+                    i++;
+                }
             }
         });
 
@@ -194,5 +209,57 @@ public class Making_test extends AppCompatActivity {
             }
         });
 
+    }
+    public boolean valid()
+    {
+        boolean valid = true;
+        String qestion = textField_qestion.getEditText().getText().toString();
+        if (TextUtils.isEmpty(qestion)) {
+            textField_qestion.setError("Необходимо заполнить!");
+            Toast.makeText(this, "Введите все поля", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else {
+            textField_qestion.setError(null);
+        }
+
+        String answer1 = textField_answer1.getEditText().getText().toString();
+        if (TextUtils.isEmpty(answer1)) {
+            textField_answer1.setError("Необходимо заполнить!");
+            Toast.makeText(this, "Введите все поля", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else {
+            textField_answer1.setError(null);
+        }
+
+        String answer2 = textField_answer2.getEditText().getText().toString();
+        if (TextUtils.isEmpty(answer2)) {
+            textField_answer2.setError("Необходимо заполнить!");
+            Toast.makeText(this, "Введите все поля", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else {
+            textField_answer2.setError(null);
+        }
+
+        String answer3 = textField_answer3.getEditText().getText().toString();
+        if (TextUtils.isEmpty(answer3)) {
+            textField_answer3.setError("Необходимо заполнить!");
+            Toast.makeText(this, "Введите все поля", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else {
+            textField_answer3.setError(null);
+        }
+
+        String answer4 = textField_answer4.getEditText().getText().toString();
+        if (TextUtils.isEmpty(answer4)) {
+            textField_answer4.setError("Необходимо заполнить!");
+            Toast.makeText(this, "Введите все поля", Toast.LENGTH_SHORT).show();
+            valid = false;
+        } else {
+            textField_answer4.setError(null);
+        }
+
+
+
+        return valid;
     }
 }
