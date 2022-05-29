@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">v1</string>
+    <string name="make_test">Сделать тест</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="tests">Тесты</string>
+    <string name="profil">Профиль</string>
+    <string name="hint_qestion">Введите вопрос</string>
+    <string name="hint_answer1">Введите первый вариант ответа</string>
+    <string name="hint_answer2">Введите второй вариант ответа</string>
+    <string name="hint_answer3">Введите третий вариант ответа</string>
+    <string name="hint_answer4">Введите четвёртый вариант ответа</string>
+    <string name="hint_right_answer">Введите правильный ответ</string>
+    <string name="hint_numbers_of_answers">Введите колличество ответов</string>
+    <string name="end">Закончить</string>
+    <string name="enter">Подтвердить</string>
+    <string name="next_qestion">Следующий вопрос</string>
+    <string name="exit">Выход</string>
+    <string name="next">Следующий</string>
+    <string name="save">Сохранить</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="sign_in">Войти</string>
+    <string name="registr">Зарегистрироваться</string>
+    <string name="action_settings">Settings</string>
+    <string name="loading">загрузка</string>
+    <string name="auth_failed">аунтификация прошла с ошибкой</string>
+    <string name="emailpassword_status_fmt">emailpassword_status_fmt</string>
+    <string name="firebase_status_fmt">firebase_status_fmt</string>
+</resources>

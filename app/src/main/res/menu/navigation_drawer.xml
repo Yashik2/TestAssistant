@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    android:id="@+id/nav">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/item1"
+            android:icon="@drawable/ic_of_profile_foreground"
+            android:title="@string/profil"
+            android:checked="true" />
+        <item
+            android:id="@+id/item2"
+            android:icon="@drawable/ic_of_adding_test_foreground"
+            android:title="@string/make_test" />
+        <item
+            android:id="@+id/item3"
+            android:icon="@drawable/ic_own_tests_foreground"
+            android:title="Ваши тесты" />
+                <item
+                    android:id="@+id/item4"
+                    android:icon="@drawable/ic_all_tests_foreground"
+                    android:title="Все тесты" />
+    </group>
+</menu>
